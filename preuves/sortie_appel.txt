@@ -1,0 +1,41 @@
+>>> Enregistrement de Alice (001010000010001@ims.mnc001.mcc001.3gppnetwork.org)
+   [Alice] recu : SIP/2.0 100 Trying
+   [Alice] recu : SIP/2.0 401 Unauthorized - Challenging the UE
+   [Alice] SQN=5201, MAC-A verifie : OUI
+   [Alice] recu : SIP/2.0 100 Trying
+   [Alice] recu : SIP/2.0 200 OK
+   [Alice] ENREGISTRE (200 OK)
+
+>>> Enregistrement de Bob   (001010000010002@ims.mnc001.mcc001.3gppnetwork.org)
+   [Bob  ] recu : SIP/2.0 100 Trying
+   [Bob  ] recu : SIP/2.0 401 Unauthorized - Challenging the UE
+   [Bob  ] SQN=901, MAC-A verifie : OUI
+   [Bob  ] recu : SIP/2.0 100 Trying
+   [Bob  ] recu : SIP/2.0 200 OK
+   [Bob  ] ENREGISTRE (200 OK)
+
+>>> Alice (10001) appelle Bob (10002)
+   [Alice] envoie : INVITE
+   [Alice] recu : SIP/2.0 100 Trying
+   [Bob  ] connexion TCP recue du P-CSCF
+   [Bob  ] recu : INVITE sip:001010000010002@192.168.1.17:5091 SIP/2.0
+   [Bob  ] envoie : 180 Ringing
+   [Bob  ] envoie : 200 OK (decroche)
+   [Alice] recu : SIP/2.0 180 Ringing
+   [Alice] recu : SIP/2.0 200 OK
+   [Alice] envoie : ACK
+>>> Communication etablie, attente de 3 s ...
+   [Bob  ] connexion TCP recue du P-CSCF
+   [Bob  ] recu : ACK sip:001010000010002@192.168.1.17:5091 SIP/2.0
+   [Alice] envoie : BYE
+   [Bob  ] recu : BYE sip:001010000010002@192.168.1.17:5091 SIP/2.0
+   [Bob  ] envoie : 200 OK (au BYE)
+   [Alice] recu : SIP/2.0 200 OK
+
+========== BILAN ==========
+180 Ringing recu par Alice : True
+200 OK recu par Alice      : True
+ACK recu par Bob           : True
+BYE recu par Bob           : True
+200 OK au BYE recu         : True
+>>> APPEL COMPLET REUSSI

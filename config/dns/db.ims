@@ -1,0 +1,23 @@
+$TTL 86400
+@   IN  SOA ns.ims.mnc001.mcc001.3gppnetwork.org. admin.ims.mnc001.mcc001.3gppnetwork.org. (
+        2026111602
+        3600
+        1800
+        604800
+        86400
+)
+
+@       IN  NS  ns.ims.mnc001.mcc001.3gppnetwork.org.
+
+ns      IN  A   10.0.2.15
+pcscf   IN  A   10.0.2.15
+icscf   IN  A   10.0.2.15
+scscf   IN  A   10.0.2.15
+hss     IN  A   10.0.2.15
+
+_sip._udp.pcscf  1D IN SRV 0 0 5060 pcscf
+_sip._tcp.pcscf  1D IN SRV 0 0 5060 pcscf
+_sip._udp        1D IN SRV 0 0 4060 icscf
+_sip._tcp        1D IN SRV 0 0 4060 icscf
+_sip._udp.scscf  1D IN SRV 0 0 6060 scscf
+_sip._tcp.scscf  1D IN SRV 0 0 6060 scscf
